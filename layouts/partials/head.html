@@ -1,61 +1,12 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta charset="UTF-8">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+{{ with site.Params.description }}<meta name="description" content="{{ . }}" />{{ end }}
 
-<meta name="viewport" content="width=device-width, initial-scale=1 ">
-
-<title>{{ if .Title }}{{ .Title | title }} - {{ end }}{{ if ne .Title .Site.Title }}{{ .Site.Title | markdownify }}{{ end }}{{ if .IsHome }} - {{ .Param "tagline" }}{{ end }}</title>
-<meta name="description" content="{{ .Params.description }}">
-
-{{- partialCached "head/schema.html" . }}
-
-{{ if .Params.canonicalUrl }}
-    <link rel="canonical" href="{{ .Params.canonicalUrl }}">
-{{ else }}
-    <link rel="canonical" href="{{ .Permalink }}">
-{{ end }}
-
-
-<link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
 <link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="STLGameDev" />
-<link rel="manifest" href="/site.webmanifest" />
 
-{{ hugo.Generator }}
-{{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
-{{ $public := not .Params.private }}
-{{ if and $production $public }}
-    <meta name="robots" content="index, follow">
-{{ else }}
-    <meta name="robots" content="noindex, nofollow">
-{{ end }}
-
-{{- partial "head/css.html" . }}
-
-{{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/twitter_cards.html" . -}}
-
-{{ $jQuery := resources.Get "js/jquery.min.js" }}
-<script src="{{ $jQuery.RelPermalink }}" ></script>
-
-{{- if hugo.IsProduction -}}
-{{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}
-<script src="{{ $bootstrap.RelPermalink }}" crossorigin="anonymous"></script>
-{{- else -}}
-{{ $bootstrap := resources.Get "js/bootstrap.bundle.js" }}
-<script src="{{ $bootstrap.RelPermalink }}" ></script>
-{{- end -}}
-
-{{ $faCustom := resources.Get "js/custom-icons.min.js" }}
-{{ $faBrands := resources.Get "js/brands.min.js" }}
-{{ $faSD := resources.Get "js/sharp-duotone-solid.min.js" }}
-{{ $faFontAwesome := resources.Get "js/fontawesome.min.js" }}
-{{ $scripts := resources.Get "js/scripts.js" }}
-<script defer src="{{ $faCustom.RelPermalink }}"></script>
-<script defer src="{{ $faBrands.RelPermalink }}"></script>
-<script defer src="{{ $faSD.RelPermalink }}"></script>
-<script defer src="{{ $faFontAwesome.RelPermalink }}"></script>
-<script defer src="{{ $scripts.RelPermalink }}"></script>
-
-
+{{ partial "head/css.html" . }}
+{{ partial "head/js.html" . }}

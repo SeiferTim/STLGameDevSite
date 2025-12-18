@@ -1,0 +1,156 @@
+<div class="scene" id="scene">
+  <!-- Fixed background layers -->
+  <div class="scene__bg" aria-hidden="true"></div>
+  <div class="scene__stars" aria-hidden="true"></div>
+
+  <!-- Parallax layer (fixed; objects translate at different scroll speeds) -->
+  <div class="scene__parallax" aria-hidden="true">
+    <!-- Decorative stars (real art, with CSS fallback) -->
+    {{ with resources.Get "images/spacestuff/4_point_star_borderless.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.22" style="--x: 14vw; --y: 68vh; --w: 52px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.22" style="--x: 18vw; --y: 70vh; --size: 36px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/5_point_star_magenta_border.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.18" style="--x: 62vw; --y: 22vh; --w: 44px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.18" style="--x: 64vw; --y: 28vh; --size: 28px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/tall_star_down.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.26" style="--x: 88vw; --y: 18vh; --w: 34px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.26" style="--x: 88vw; --y: 22vh; --size: 18px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/4_point_star_borderless.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.08" style="--x: 6vw; --y: 28vh; --w: 36px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.12" style="--x: 94vw; --y: 44vh; --w: 30px; opacity: 0.85;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.08" style="--x: 6vw; --y: 28vh; --size: 22px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.12" style="--x: 94vw; --y: 44vh; --size: 18px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/5_point_star_magenta_border.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.30" style="--x: 4vw; --y: 78vh; --w: 40px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.16" style="--x: 92vw; --y: 76vh; --w: 34px; opacity: 0.8;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.30" style="--x: 4vw; --y: 78vh; --size: 24px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.16" style="--x: 92vw; --y: 76vh; --size: 20px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/tall_star_down.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.34" style="--x: 12vw; --y: 10vh; --w: 28px; opacity: 0.85;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.20" style="--x: 86vw; --y: 90vh; --w: 26px; opacity: 0.8;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.34" style="--x: 12vw; --y: 10vh; --size: 18px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.20" style="--x: 86vw; --y: 90vh; --size: 16px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/tall_star_up.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.40" style="--x: 3vw; --y: 6vh; --w: 28px; opacity: 0.85;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.11" style="--x: 97vw; --y: 14vh; --w: 22px; opacity: 0.75;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.28" style="--x: 95vw; --y: 62vh; --w: 26px; opacity: 0.75;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.40" style="--x: 3vw; --y: 6vh; --size: 18px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.11" style="--x: 97vw; --y: 14vh; --size: 14px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.28" style="--x: 95vw; --y: 62vh; --size: 16px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/waxing_crescent_moon_borderless.webp" }}
+      <img class="parallax-item parallax-item--img" data-speed="0.06" style="--x: 6vw; --y: 52vh; --w: 90px; opacity: 0.55;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.09" style="--x: 92vw; --y: 30vh; --w: 74px; opacity: 0.50;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.06" style="--x: 6vw; --y: 52vh; --size: 40px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.09" style="--x: 92vw; --y: 30vh; --size: 34px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/waxing_crescent_moon.webp" }}
+      <img class="parallax-item parallax-item--img" data-speed="0.14" style="--x: 10vw; --y: 86vh; --w: 64px; opacity: 0.6;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.18" style="--x: 90vw; --y: 86vh; --w: 56px; opacity: 0.55;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.14" style="--x: 10vw; --y: 86vh; --size: 28px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.18" style="--x: 90vw; --y: 86vh; --size: 24px;"></div>
+    {{ end }}
+
+    {{/* circle_star assets removed for now (can read as a large hazy circle) */}}
+
+    {{ with resources.Get "images/spacestuff/4_point_star_double_border.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.24" style="--x: 18vw; --y: 34vh; --w: 46px;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.32" style="--x: 82vw; --y: 8vh; --w: 38px; opacity: 0.85;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.24" style="--x: 18vw; --y: 34vh; --size: 26px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.32" style="--x: 82vw; --y: 8vh; --size: 22px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/5_point_star_blue_border_rounded.webp" }}
+      <img class="parallax-item parallax-item--img" data-speed="0.22" style="--x: 8vw; --y: 22vh; --w: 44px; opacity: 0.8;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.26" style="--x: 94vw; --y: 72vh; --w: 42px; opacity: 0.8;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.22" style="--x: 8vw; --y: 22vh; --size: 26px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.26" style="--x: 94vw; --y: 72vh; --size: 24px;"></div>
+    {{ end }}
+
+    {{ with resources.Get "images/spacestuff/5_point_star_yellow_border.webp" }}
+      <img class="parallax-item parallax-item--img parallax-item--glow" data-speed="0.18" style="--x: 20vw; --y: 92vh; --w: 44px; opacity: 0.9;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      <img class="parallax-item parallax-item--img" data-speed="0.12" style="--x: 78vw; --y: 58vh; --w: 36px; opacity: 0.85;" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+    {{ else }}
+      <div class="parallax-item parallax-item--bit" data-speed="0.18" style="--x: 20vw; --y: 92vh; --size: 24px;"></div>
+      <div class="parallax-item parallax-item--bit" data-speed="0.12" style="--x: 78vw; --y: 58vh; --size: 20px;"></div>
+    {{ end }}
+  </div>
+
+  <!-- Content layer -->
+  <div class="scene__content">
+    {{ partial "home/hero.html" . }}
+    <main class="home" aria-label="Homepage highlights">
+      <section class="home-highlights" aria-label="Highlights">
+        <div class="home-highlights__deco" aria-hidden="true">
+          {{ with resources.Get "images/spacestuff/big_planet.webp" }}
+            <img class="home-planet home-planet--left" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+          {{ end }}
+          {{ with resources.Get "images/spacestuff/ringed_planet.webp" }}
+            <img class="home-planet home-planet--right" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+          {{ end }}
+        </div>
+
+        <aside class="callouts" aria-label="Callouts">
+          <article class="panel panel--event panel--small">
+            <h2>Next Event</h2>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+          </article>
+
+          <article class="panel panel--roundup panel--small">
+            <h2>RoundUp</h2>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+          </article>
+        </aside>
+
+        <section class="content-panels" aria-label="Latest content">
+          <article class="panel panel--news panel--large">
+            <h2>Latest News</h2>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+          </article>
+
+          <article class="panel panel--blog panel--large">
+            <h2>Latest Blog</h2>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+            <p>Blah blah blah. Blah blah. Blah blah blah blah.</p>
+          </article>
+        </section>
+      </section>
+
+      <div class="home-bottom-arch" aria-hidden="true">
+        {{ with resources.Get "images/spacestuff/gamliens_on_the_arch.webp" }}
+          <img class="home-bottom-arch__img" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+        {{ end }}
+      </div>
+    </main>
+  </div>
+</div>

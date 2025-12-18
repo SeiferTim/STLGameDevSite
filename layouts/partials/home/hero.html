@@ -1,0 +1,42 @@
+<header class="hero">
+  {{/* Mascots (only render if present to avoid broken icons) */}}
+  {{ with resources.Get "images/spacestuff/gamelien_magenta_facing_left.webp" }}
+    <img class="hero__mascot hero__mascot--magenta" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+  {{ end }}
+  {{ with resources.Get "images/spacestuff/gamelien_yellow_facing_right.webp" }}
+    <img class="hero__mascot hero__mascot--yellow" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+  {{ end }}
+
+  {{ with resources.Get "images/spacestuff/gamelien_blue_upsidedown_facing_left.webp" }}
+    <img class="hero__mascot hero__mascot--blue" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+  {{ end }}
+
+  <div class="hero__stack">
+    <div class="hero__logo">
+      {{ with resources.Get "images/stlgd-logo.svg" }}
+        <img src="{{ .RelPermalink }}" alt="STLGameDev" />
+      {{ end }}
+    </div>
+
+    <div class="hero__tagline">
+      {{ with resources.Get "images/tagline.webp" }}
+        <img src="{{ .RelPermalink }}" alt="" loading="lazy" />
+      {{ end }}
+    </div>
+
+    <div class="hero__blurb">
+      <p>
+        We are a community run organization dedicated to providing social, professional, and educational events,
+        resources, and support for game developers in and around the St. Louis region.
+      </p>
+      <p>
+        Let's make something great together!
+      </p>
+    </div>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="/about/">Learn more</a>
+      <a class="btn btn--ghost" href="https://discord.com/invite/mTMKpre/" rel="noopener noreferrer">Join our Discord</a>
+    </div>
+  </div>
+</header>

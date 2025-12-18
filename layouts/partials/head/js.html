@@ -1,0 +1,10 @@
+{{/*
+  Bundle JS via Hugo Pipes.
+  For now it's a single file, but we still run through Hugo for fingerprinting.
+*/}}
+{{- $js := resources.Get "js/parallax.js" -}}
+{{- if hugo.IsProduction -}}
+  {{- $js = $js | minify -}}
+{{- end -}}
+{{- $js = $js | fingerprint -}}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>

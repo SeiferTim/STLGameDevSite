@@ -1,0 +1,11 @@
+{{/*
+  Bottom-of-page horizon/arch illustration.
+  Uses your `gamliens_on_the_arch.webp` if present.
+*/}}
+<section class="horizon" aria-hidden="true">
+  <div class="horizon__planet"></div>
+
+  {{ with resources.Get "images/spacestuff/gamliens_on_the_arch.webp" }}
+    <img class="horizon__arch" src="{{ .RelPermalink }}" alt="" loading="lazy" />
+  {{ end }}
+</section>

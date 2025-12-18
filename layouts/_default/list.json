@@ -1,5 +1,0 @@
-[{{- range $i, $e := .Pages -}}
-{{- if $i -}}, {{ end -}}
-  { "title" : "{{ .Title }}", "url" : "{{ .Permalink }}", "date_published" : "{{ .Date }}" }
-{{- end -}}
-]

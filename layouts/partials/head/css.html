@@ -1,14 +1,9 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-</style>
-
-
-{{- $cssOpts := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "enabledSourceMap" (not hugo.IsProduction) "transpiler" "dartsass") -}}
-{{- $cssMain := resources.Get "scss/abstract/core.scss" | resources.ExecuteAsTemplate "scss/core.scss" . -}}
-{{- $cssStyles := resources.Get "scss/abstract/styles.scss" | resources.ExecuteAsTemplate "scss/styles.scss" . -}}
-
-{{- $styles := slice $cssMain $cssStyles  | resources.Concat "scss/main.scss" | toCSS $cssOpts | minify | fingerprint -}}
-
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-media="screen"
-crossorigin="anonymous">
+{{/*
+  Compile SCSS via Hugo Pipes (Dart Sass).
+  Outputs fingerprinted CSS for cache busting.
+*/}}
+{{- /* NOTE: Using embedded (libsass) for now; this repo's Windows setup hit TOCSS-DART pipe errors. */ -}}
+{{- $opts := dict "targetPath" "css/site.css" "transpiler" "libsass" "outputStyle" (cond hugo.IsProduction "compressed" "expanded") "enableSourceMap" (not hugo.IsProduction) -}}
+{{- $scss := resources.Get "scss/site.scss" -}}
+{{- $css := $scss | toCSS $opts | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
